@@ -12,6 +12,14 @@ Full stack web developer === HTML + CSS + JavaScript
 
 https://www.codementor.io/learn-programming/javascript-trends-skills-developers-should-learn
 
+standards vs. trends (?)
+
+.where is your:
+* routing
+* templating
+* database 
+
+
 
 .Declarative
 * HTML
