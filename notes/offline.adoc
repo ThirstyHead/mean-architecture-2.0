@@ -1,0 +1,58 @@
+
+
+http://offlinefirst.org/
+http://hood.ie/blog/say-hello-to-offline-first.html
+https://github.com/hoodiehq/hoodie
+https://www.toptal.com/front-end/introducing-hoodie-full-stack-app-development-for-front-end-developers
+http://dailyjs.com/post/hoodie
+http://couchdb.apache.org/
+https://pouchdb.com/
+https://techbeacon.com/offline-first-web-mobile-apps-top-frameworks-components
+
+https://www.w3.org/TR/service-workers/
+https://www.w3.org/TR/appmanifest/
+https://alistapart.com/article/offline-first
+https://developers.google.com/web/progressive-web-apps/
+
+
+<!-- Polyfill Web Components support for older browsers -->
+  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <!-- Import element -->
+  <link rel="import" href="components/google-map/google-map.html">
+
+  <!-- Use element -->
+  <google-map latitude="37.790" longitude="-122.390"></google-map>
+
+
+
+
+
+
+
+
+
+  <dom-module id="contact-card">
+    <style>...</style>
+    <template>
+      <slot></slot>
+      <iron-icon icon="star" hidden$="{{!starred}}"></iron-icon>
+    </template>
+    <script>
+      class ContactCard extends Polymer.Element {
+        static get is() { return "contact-card"; }
+        static get properties() {
+          return {
+            starred: { type: Boolean, value: true }
+          }
+        }
+      }
+      customElements.define(ContactCard.is, ContactCard);
+    </script>
+  </dom-module>
+
+
+<contact-card starred>
+  <img src="profile.jpg" alt="Eric's photo">
+  <span>Eric Bidelman</span>
+</contact-card>
