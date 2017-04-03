@@ -1,0 +1,113 @@
+= MEAN Architecture 2.0
+Scott Davis <sdavis@thoughtworks.com>
+
+
+== What is MEAN?
+
+* Full-stack JavaScript
+* Individual pieces are swappable / replaceable
+* Implies an architecture
+
+Full stack web developer === HTML + CSS + JavaScript
+
+https://www.codementor.io/learn-programming/javascript-trends-skills-developers-should-learn
+
+standards vs. trends (?)
+
+.where is your:
+* routing
+* templating
+* database 
+
+
+
+.Declarative
+* HTML
+* CSS
+* (nothing to unit test)
+
+SEO
+
+Speed
+
+Templates
+
+mvc
+
+pwa
+
+.Work with the browser, not against it
+* understand the loading model
+** html
+** css
+** js (blocks, async)
+* understand HTTP/1 vs HTTP/2
+
+
+
+== What type of website are you building?
+
+Docs or App?
+
+Public or private?
+
+Online or offline?
+
+What is your multi-screen strategy?
+
+
+
+
+
+Documents? (get stuff)
+
+App? (do stuff)
+
+Mobile?
+
+Offline?
+
+Authentication?
+
+
+== Start with HTML
+
+I have all of my clients build out working HTML wireframes
+
+CSS, of course
+
+JS, wait for it... you might not need it.
+
+
+
+
+== Framework fatigue
+https://developers.redhat.com/blog/2016/02/03/angular-react-and-javascript-framework-fatigue/
+https://www.sitepoint.com/javascript-dependency-backlash-myth-busting-progressive-enhancement/
+http://www.quirksmode.org/blog/archives/2015/01/the_problem_wit.html
+https://adactio.com/journal/8245
+https://jakearchibald.com/2013/progressive-enhancement-still-important/
+https://www.slideshare.net/nzakas/enough-withthejavascriptalready
+https://adactio.com/journal/6246/
+
+https://alistapart.com/article/application-cache-is-a-douchebag
+Jake Archibald:
+
+Sites that are useful offline generally fall into two categories, ones that let you do stuff and ones that let you look stuff up.
+
+“Look stuff up” sites include Wikipedia, YouTube, and Twitter. The heavy lifting tends to be on the server and there’s a large amount of data available but users only use a fraction of it.
+
+“Do stuff” sites include Cut the Rope, CSS Lint, and Google Docs. With these sites the heavy lifting tends to be done on the client. They offer a limited amount of data, but you can use that data in multiple ways, or create your own data. This is the case Application Cache was designed for, so we’ll look at that first for a nice easy introduction.
+
+
+
+
+Software, like all technologies, is inherently political. … Code inevitably reflects the choices, biases and desires of its creators.
+—Jamais Cascio
+
+
+
+
+== HTML-only
+
+AMP

@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN Architecture 2.0</title>
+    <link rel="stylesheet" href="bower_components/talk-o-vision/talk-o-vision.css">
+    <style>
+      p{
+        width: 75%;
+        text-align: center;
+        padding-left: 12%;
+      }
+
+      .full-height{
+        height: 100vh;
+        /*width: 100vw;*/
+      }
+
+      .full-width{
+        /*height: 100vh;*/
+        width: 100vw;
+      }
+
+      .partial-height{
+        height: 75%;
+        max-height: 75%;
+      }
+
+      .half-img{
+        max-width: 75%;
+        margin-top: 1rem;
+      }
+
+      .top-margin{
+        margin-top: 1rem;
+      }
+
+      .section-title{
+        position: relative;
+        top: 50%;
+        transform: perspective(1px) translateY(-50%);
+      }
+
+      .sub-title{
+        margin: 0;
+        margin-top: -2rem;
+      }
+
+      .title-slide{
+        background: url('slides/title/img/blueprint.jpg') no-repeat center center;
+        background-size: contain;
+      }
+
+      .banner {
+        /*position:relative;
+        bottom:50px;*/
+        background-color: black;
+        opacity: 0.5;
+        height: 350px;
+        width: 100%;
+        padding-left: 10%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .banner .title {
+        justify-content: flex-start;
+        font-size: 1em;
+        text-align: left;
+        padding: 0.5em;
+      }
+
+      .banner .title h1 {
+        justify-content: flex-start;
+        font-size: 1.5em;
+        text-transform: none;
+        font-weight: bold;
+      }
+
+      .banner .title h2 {
+        justify-content: flex-start;
+        font-size: 1em;
+        text-transform: none;
+        font-style: italic;
+      }
+
+
+      .banner .bio {
+        justify-content: flex-end;
+        align-self: flex-end;
+        font-size: 0.5em;
+        text-align: right;
+        padding: 0.5em;
+      }
+
+      .banner .bio a{
+        color: white;
+      }
+
+      table th, table td {
+          text-align: left;
+          padding: 0.2em 0.5em 0.2em 0.5em;
+          /*border-bottom: 1px solid;*/
+      }
+      table {
+          margin: auto;
+          padding-left: 20%;
+          border-collapse: collapse;
+          border-spacing: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <ol class="slideshow">
+      <li class="title-slide">
+          <div class="banner">
+            <div class="title">
+              <h1>MEAN Architecture 2.0</h1>
+            </div>
+            <div class="bio">
+              Scott Davis <br>
+              <a href="mailto:sdavis@thoughtworks.com">sdavis@thoughtworks.com</a> <br>
+              <a href="https://twitter.com/scottdavis99?lang=en">@scottdavis99</a>
+            </div>
+          </div>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/bio/img/scott-davis-bio.png"
+             alt=""
+             class="full-height">
+
+      </li>
+
+      <li>
+        <img src="slides/mean-logo/img/mean-logo.jpg"
+             alt=""
+             class="full-width">
+      </li>
+
+      <li>
+        <img src="slides/mean-wiki/img/mean-wiki.png"
+             alt=""
+             class="full-height"
+             data-original="https://en.wikipedia.org/wiki/MEAN_(software_bundle)">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/lamp-mean-4-pieces/img/lamp-mean-4-pieces.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/mean-3rd-wave/img/mean-3rd-wave.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li>
+        <h2>MEAN 2.0 Architecture</h2>
+        <ul>
+          <li>#htmlFirst</li>
+          <li>#mobileFirst</li>
+          <li>#oneWebManyScreens</li>
+          <li>#offlineFirst</li>
+          <li>#progressiveWebAppsFirst</li>
+        </ul>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/what-is-a-full-stack-developer/img/what-is-a-full-stack-developer.png"
+             alt=""
+             class="full-height"
+             data-original="https://careerfoundry.com/en/blog/web-development/what-is-a-full-stack-web-developer/">
+      </li>
+
+      <li>
+        <h2>A Full-Stack Web Developer is...</h2>
+        <img src="slides/full-stack-developer/img/full-stack-developer.png"
+             alt="">
+      </li>
+
+      <li>
+        <img src="slides/heinlein-specialization/img/heinlein-specialization.jpg"
+             alt=""
+             class="full-width"
+             data-original="http://izquotes.com/quotes-pictures/quote-a-human-being-should-be-able-to-change-a-diaper-plan-an-invasion-butcher-a-hog-conn-a-ship-robert-a-heinlein-306677.jpg">
+      </li>
+
+      <li>
+        <h2>I'll probably regret saying this...</h2>
+        <p>...but a <span class="highlight">MEAN Stack</span> developer has a credible claim of being a <span class="highlight">Full Stack</span> developer as well.</p>
+
+        <ul>
+          <li>JavaScript is consistent across Server, Client, Database, build scripts, etc.</li>
+          <li>The trend towards PaaS (AWS, Heroku) and SaaS (Firebase, Auth0) makes self-service possible</li>
+
+        </ul>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/t-shaped-developer/img/t-shaped-developer.png"
+             alt=""
+             class="full-height"
+             data-original="https://careerfoundry.com/en/blog/web-development/what-is-a-full-stack-web-developer/">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+
+
+      <!-- No Framework / Pure HTML -->
+      <li>
+        <h2 class="section-title">No-Framework / Pure HTML</h2>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/reddit-js-wordcloud/img/reddit-js-wordcloud.png"
+             alt=""
+             class="full-height"
+             data-original="https://www.codementor.io/learn-programming/javascript-trends-skills-developers-should-learn">
+      </li>
+
+      <li>
+
+        <p>&nbsp;</p>
+        <p>Web Dev <span class="highlight" style="text-decoration: line-through;">is exclusively</span> JavaScript</p>
+        <p>Web Dev <u class="highlight">includes</u> JavaScript</p>
+
+      </li>
+
+      <li>
+        <img src="slides/stool/img/stool.jpg"
+             alt=""
+             class="full-height"
+             data-original="https://c1.staticflickr.com/8/7560/15925990347_dfe9c4698d_z.jpg">
+      </li>
+
+      <li class="bg-white">
+        <h2>A Full-Stack Web Developer is...</h2>
+        <p class="sub-title">...well-versed in the latest platform capabilities</p>
+        <img src="slides/web-2015/img/web-2015.png"
+             alt=""
+             class="partial-height">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+      <li>
+        <h2 class="section-title">#htmlFirst</h2>
+      </li>
+
+      <li>
+        <img src="slides/wired-google-amp/img/wired-google-amp.png"
+             alt=""
+             class="full-height"
+             data-original="https://www.wired.com/2016/02/googles-amp-speeding-web-changing-works/">
+      </li>
+
+      <li>
+        <img src="slides/website-speed-2017/img/website-speed-2017.png"
+             alt=""
+             class="full-height"
+             data-original="http://www.hobo-web.co.uk/your-website-design-should-load-in-4-seconds/">
+      </li>
+
+      <li>
+        <img src="slides/amp-wapo/img/amp-wapo.png"
+             alt=""
+             class="full-height"
+             data-original="https://www.ampproject.org/case-studies/washingtonpost/">
+      </li>
+
+      <li>
+        <img src="slides/amp-casestudies/img/amp-casestudies.png"
+             alt=""
+             class="full-height"
+             data-original="https://www.ampproject.org/learn/who-uses-amp/publishers/">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+      <li>
+        <h2 class="section-title">#mobileFirst</h2>
+      </li>
+
+      <li>
+        <img src="slides/two-doors/img/two-doors.jpg"
+             alt=""
+             class="full-height"
+             data-original="http://www.flickr.com/photos/caitlinburke/78836687/">
+      </li>
+
+      <li>
+        <img src="slides/wml-syntax/img/wml.png"
+             alt=""
+             class="full-height"
+             data-original="https://en.wikipedia.org/wiki/Wireless_Markup_Language">
+      </li>
+
+      <li>
+        <img src="slides/wml-syntax/img/wml-syntax.png"
+             alt=""
+             class="full-height"
+             data-original="https://en.wikipedia.org/wiki/Wireless_Markup_Language">
+      </li>
+
+      <li class="bg-white">
+        <div class="side-by-side">
+          <img src="slides/razr/img/razr.jpg"
+               alt=""
+               class="half-img"
+               data-original="https://en.wikipedia.org/wiki/Motorola_Razr"
+               >
+        </div>
+
+        <div class="side-by-side">
+            <a href="https://en.wikipedia.org/wiki/Motorola_Razr"><img src="slides/razr/img/razr-specs.png"
+            alt=""
+            class="half-img"
+            data-original="https://en.wikipedia.org/wiki/Motorola_Razr"
+            ></a>
+        </div>
+      </li>
+
+      <li>
+        <img src="slides/doggy-door/img/doggy-door.jpg"
+             alt=""
+             class="full-height"
+             data-original="https://upload.wikimedia.org/wikipedia/commons/7/71/Doggy_door_exit.JPG">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/evolution-mobile-web/img/evolution-mobile-web.png"
+             alt=""
+             class="full-width top-margin"
+             data-original="https://upload.wikimedia.org/wikipedia/commons/b/bb/Mobile_Web_Standards_Evolution_Vector.svg">
+      </li>
+
+      <li>
+        <img src="slides/iphone-invention-of-the-year/img/iphone-invention-of-the-year.png"
+             alt=""
+             class="full-height"
+             data-original="http://content.time.com/time/specials/2007/article/0,28804,1677329_1678542_1677891,00.html">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/iphone-1-webdev/img/iphone-1-webdev.png"
+             alt=""
+             class="full-height"
+             data-original="http://www.engadget.com/2007/06/11/apple-announces-third-party-software-details-for-iphone/">
+      </li>
+
+      <li>
+        <img src="slides/one-web-many-screens/img/one-web-many-screens.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li>
+        <img src="slides/two-doors/img/two-doors.jpg"
+             alt=""
+             class="full-height"
+             data-original="http://www.flickr.com/photos/caitlinburke/78836687/">
+      </li>
+
+      <li>
+        <img src="slides/one-door-many-openings/img/one-door-many-openings.jpg"
+             alt=""
+             class="full-height"
+             data-original="http://mrg.bz/u5OKkF">
+      </li>
+
+      <li>
+        <h2>A Recipe for <span class="highlight">Link Rot</span></h2>
+
+        <p>
+            How can I share a link across devices
+            <br>when the URLs don't easily allow it?
+        </p>
+
+        <p>&nbsp;</p>
+
+        <table class="reveal">
+            <tbody>
+                <tr>
+                    <td>Desktop</td>
+                    <td><a href="http://www.yahoo.com">http://www.yahoo.com</a></td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td><a href="http://m.yahoo.com">http://m.yahoo.com</a></td>
+                </tr>
+                <tr>
+                    <td>Tablet</td>
+                    <td><a href="http://www.yahoo.com/tablet">http://www.yahoo.com/tablet</a></td>
+                </tr>
+            </tbody>
+        </table>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/best-viewed-with-ie/img/best-viewed-with-ie.jpg"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/responsive-web-design/img/responsive-web-design.png"
+             alt=""
+             class="full-width"
+             data-original="https://abookapart.com/products/responsive-web-design">
+      </li>
+
+      <li>
+        <img src="slides/one-website-for-all-devices/img/one-website-for-all-devices.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/responsive-bruce-lee/img/responsive-bruce-lee.jpg"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/responsive-examples/img/starbucks.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/responsive-examples/img/time.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+
+      <li class="bg-white">
+        <img src="slides/mobile-first/img/mobile-first.jpg"
+             alt=""
+             class="full-width"
+             data-original="http://abookapart.com/products/mobile-first">
+      </li>
+
+      <li>
+        <img src="slides/vertical-viewing/img/vertical-viewing.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/why/img/why.jpg"
+             alt=""
+             class="full-height"
+             data-original="https://c2.staticflickr.com/6/5181/5614813544_b480316fcd_b.jpg">
+      </li>
+
+      <li>
+        <img src="slides/smartphones-outsell-pcs/img/smartphones-outsell-pcs.png"
+             alt=""
+             class="full-height"
+             data-original="http://www.businessinsider.com/for-the-first-time-ever-smartphones-are-outselling-pcs-2012-2">
+      </li>
+
+      <li>
+        <img src="slides/apple-sold-more-ios-than-macs/img/apple-sold-more-ios-than-macs.png"
+             alt=""
+             class="full-width"
+             data-original="http://www.asymco.com/2012/02/16/ios-devices-in-2011-vs-macs-sold-it-in-28-years/">
+      </li>
+
+      <li>
+        <img src="slides/apple-sold-more-ios-than-macs/img/apple-sold-more-ios-than-macs-2.png"
+           alt=""
+           class="full-height"
+           data-original="http://www.asymco.com/2012/02/16/ios-devices-in-2011-vs-macs-sold-it-in-28-years/">
+      </li>
+
+      <li>
+        <img src="slides/mobile-web-traffic-2016/img/mobile-web-traffic-2016.jpg"
+             alt=""
+             class="full-width"
+             data-original="http://bgr.com/2016/11/02/internet-usage-desktop-vs-mobile/">
+      </li>
+
+      <li>
+        <img src="slides/google-mobile-first/img/google-mobile-first.png"
+             alt=""
+             class="full-height"
+             data-original="https://www.forbes.com/sites/jaysondemers/2017/01/26/what-googles-mobile-first-index-means-for-your-seo-strategy/#6b5b0b734f24">
+      </li>
+
+      <li>
+        <img src="slides/mobile-vs-desktop-social-networks/img/mobile-vs-desktop-social-networks.jpg"
+             alt=""
+             class="full-width"
+             data-original="https://www.statista.com/chart/2109/time-spent-on-social-networks-by-platform/">
+      </li>
+
+      <li>
+        <img src="slides/mobile-primary-internet-access/img/mobile-primary-internet-access.png"
+             alt=""
+             class="full-width"
+             data-original="http://searchengineland.com/google-95-percent-of-us-smartphone-owners-use-search-113017">
+      </li>
+
+      <li>
+        <img src="slides/mobile-half-the-world/img/mobile-half-the-world.png"
+             alt=""
+             class="full-height"
+             data-original="http://www.gsma.com/newsroom/press-release/half-worlds-population-connected-mobile-internet-2020-according-gsma/">
+      </li>
+
+      <li>
+        <img src="slides/mobile-millennials/img/mobile-millennials.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+
+      <li>
+        <h2 class="section-title">#oneWebManyScreens</h2>
+        <p>(#notOnlyMobile)</p>
+      </li>
+
+      <li>
+        <img src="slides/one-web-many-screens/img/one-web-many-screens.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li>
+        <img src="slides/mobile-internet-usage/img/mobile-internet-usage.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/google-multiscreen-world/img/google-multiscreen-world.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/google-multiscreen-world/img/multiscreen-behavior.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/netflix-multiscreen/img/netflix-multiscreen.jpg"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/google-multiscreen-world/img/google-multiscreen-exec-summary.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/google-multiscreen-world/img/google-multiscreen-exec-summary-2.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/one-web-many-screens/img/one-web-many-screens.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+
+
+
+      <li>
+        <h2 class="section-title">#offlineFirst</h2>
+      </li>
+
+      <li>
+        <img src="slides/ala-offline-first/img/ala-offline-first.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/ala-offline-first/img/ala-offline-first-intro.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        <h2><a href="http://offlinefirst.org/">http://offlinefirst.org/</a></h2>
+        <img src="slides/offline-first-org/img/offline-first-home.png"
+             alt=""
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/offline-first-org/img/offline-disconnected-by-default.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/github-peer-to-peer/img/github-peer-to-peer.jpg"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/couchdb/img/couchdb-home.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/couchdb/img/couchdb-replication.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/couchdb/img/couchdb-replication-2.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/pouchdb/img/pouchdb-home.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/pouchdb/img/pouchdb-features-2.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/hoodie/img/hoodie-home.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/hoodie/img/hoodie-no-backend.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+
+      <li class="bg-white">
+        <img src="slides/hoodie/img/hoodie-offline-first-3.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+
+
+
+
+
+      <li>
+        <h2 class="section-title">#progressiveWebAppsFirst</h2>
+      </li>
+
+      <li>
+        <img src="slides/hybrid-wars/img/hybrid-wars.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/hybrid-concept/img/hybrid-concept.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/app-stores/img/app-stores.jpg"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/hybrid-examples/img/hybrid-examples.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <h2>"Native" Apps using <span class="highlight">WebViews</span></h2>
+
+        <ul>
+            <li>Twitter</li>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>LinkedIn</li>
+            <li>Uber</li>
+            <li>Amazon</li>
+            <li>Evernote</li>
+            <li>Khan Academy</li>
+        </ul>
+      </li>
+
+      <li>
+        <img src="slides/app-fatigue/img/app-fatigue.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/gartner-mobile-app-adoption/img/gartner-mobile-app-adoption.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/mobile-apps-zero-downloads/img/mobile-apps-zero-downloads.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/native-app-dropoff/img/native-app-dropoff.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/zombie-apps/img/zombie-apps.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/web-vs-native-worldwide/img/apps-vs-web-worldwide.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        <img src="slides/web-vs-native-worldwide/img/web-vs-native-worldwide.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+      <li>
+        <img src="slides/offline-first-pwa/img/offline-first-pwa.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/pwa/img/pwa.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/pwa/img/pwa-reliable.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/pwa/img/pwa-fast.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/pwa/img/pwa-engaging.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        <h2>The thing I like most about PWAs?</h2>
+
+        <p>PWAs are <span class="highlight">W3C standards-based</span></p>
+
+        <ul>
+          <li>Service Workers</li>
+          <li>Web App Manifest</li>
+          <li>Web Components</li>
+        </ul>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-w3c.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-w3c-2.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-intro.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-intro-2.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-intro-3.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-register.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-install.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/service-workers/img/service-workers-cache.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+      <li class="bg-white">
+        <img src="slides/web-app-manifest/img/web-app-manifest-w3c.png"
+             alt=""
+             class="full-height"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/web-app-manifest/img/web-app-manifest-w3c-2.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/web-app-manifest/img/web-app-manifest-w3c-link.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/web-app-manifest/img/web-app-manifest-w3c-install.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/web-app-manifest/img/web-app-manifest-w3c-example.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/web-app-manifest/img/web-app-manifest-w3c-example-2.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/web-app-manifest/img/web-app-manifest-w3c-example-3.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/polymer/img/polymer-home.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/polymer/img/polymer-about.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/polymer/img/polymer-about-2.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/polymer/img/polymer-google-map.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/polymer/img/polymer-create-element.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/polymer/img/polymer-pwa.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/polymer/img/polymer-who.png"
+             alt=""
+             class="full-width"
+             data-original="">
+      </li>
+
+
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <li>
+        <h2>MEAN 2.0 Architecture</h2>
+        <ul>
+          <li>#htmlFirst</li>
+          <li>#mobileFirst</li>
+          <li>#oneWebManyScreens</li>
+          <li>#offlineFirst</li>
+          <li>#progressiveWebAppsFirst</li>
+        </ul>
+      </li>
+
+      <li>
+        <img src="slides/mean-logo/img/mean-logo.jpg"
+             alt=""
+             class="full-width">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/lamp-mean-4-pieces/img/lamp-mean-4-pieces.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/mean-3rd-wave/img/mean-3rd-wave.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="title-slide">
+          <div class="banner">
+            <div class="title">
+              <h1>MEAN Architecture 2.0</h1>
+            </div>
+            <div class="bio">
+              Scott Davis <br>
+              <a href="mailto:sdavis@thoughtworks.com">sdavis@thoughtworks.com</a> <br>
+              <a href="https://twitter.com/scottdavis99?lang=en">@scottdavis99</a>
+            </div>
+          </div>
+      </li>
+
+    </ol>
+
+
+    <script src="bower_components/talk-o-vision/talk-o-vision.js"></script>
+  </body>
+</html>
