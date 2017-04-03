@@ -13,7 +13,7 @@ https://www.w3.org/TR/service-workers/
 https://www.w3.org/TR/appmanifest/
 https://alistapart.com/article/offline-first
 https://developers.google.com/web/progressive-web-apps/
-
+https://developers.google.com/web/fundamentals/getting-started/primers/service-workers
 
 <!-- Polyfill Web Components support for older browsers -->
   <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
